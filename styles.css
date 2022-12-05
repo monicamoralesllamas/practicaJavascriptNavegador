@@ -1,0 +1,51 @@
+
+body {
+    background-color: rgba(19, 211, 163, 0.74);    
+
+}
+
+.historial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.title {
+    min-width: 360px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.totalSaves {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 360px;
+    max-width: 500px;
+    margin: 0 auto;
+  
+}
+
+.formTransaction {
+    display: block;
+    justify-content: center;
+    align-items: center;
+   
+    min-width: 360px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.transactionTable{
+    min-width: 360px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.tr,th{
+text-align: center;
+padding: 10px;
+border: rebeccapurple;
+
+
+}

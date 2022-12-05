@@ -4,30 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title> App Control de Gastos</title>
+
 </head>
 <body>
     
-    <h1>TUS GASTOS</h1>
-    <div>
-        <!-- <table id="totalSavings">
-        <label for="totalSavings">Ahorros</label>
-        </table> -->
-    </div>
+    <h1 class="title">CONTROL DE GASTOS</h1><hr>
+    <section class="totalSaves">TU AHORRO</section><hr>
+<div>
+    <table class="transactionTable" id="transactionTable">
+        <tr> 
+            <th>INGRESO</th> 
+            <th>GASTO</th>
+        </tr>
+        <tr>
+            <th>10</th>
+            <th>cervezas</th>
+        </tr>
+ 
+    </table>
+    <hr>
+</div>
 
-    <form action="transactions">
+    <section class="historial">HISTORIAL</section><hr>
+
+    <form class="formTransaction" id="formTransaction" >//action="createTransaction"
     <div>
-        <label for="conceptTransacation">Concepto</label>      
-        <input id="conceptTransacation" placeholder="Añadir concepto de la transacción">
+        <label for="conceptTransacation1">Concepto</label>      
+        <input id="conceptTransacation" placeholder="Añadir concepto de la transacción" name="conceptTransacation">
     </div>
     <div>
-        <label for="amonuntTransaction">Cantidad</label>
-        <input id="amonuntTransaction" placeholder="Añadir cantidad" type="number"><br>
+        <label for="amonuntTransaction1">Cantidad</label>
+        <input id="amonuntTransaction" placeholder="Añadir cantidad" type="number" name="amonuntTransaction"><br>
     </div>
     <div>
         <button>AÑADIR TRANSACCIÓN</button>
         <script src="./index.js"></script>
     </div>
     </form>
+
 </body>
+
 </html>
