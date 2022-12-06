@@ -1,81 +1,79 @@
 
-const createTransactionForm = document.querySelector('#formTransaction')
+const transactionForm = document.querySelector('#formTransaction')
+const concept = document.querySelector('#conceptTransaction')
+const amount = document.querySelector('#amountTransaction')
 const historialOfTransactions = document.querySelector('#transactionHistorial')
-const totalSavesLocation = document.querySelector('#totalSaves')
+const balance = document.querySelector('#totalBalance')
+const totalIncome = document.querySelector('#totalIncome')
+const totalExpense = document.querySelector('#totalExpense')
 
-createTransactionForm.addEventListener("submit", async(event) => {
+
+transactionForm.addEventListener("submit", async(event) => {
     event.preventDefault();
-
-    const inputConceptTransacation = document.querySelector('#conceptTransacation')
-    const inputAmonuntTransaction = document.querySelector('#amonuntTransaction')
-
-    let transaction = {
-        concept:inputConceptTransacation.value, amount:inputAmonuntTransaction.value,
-    };
-
-    console.log(transaction);
-
-    inputConceptTransacation.value ="";
-    inputAmonuntTransaction.value = "";
-
-    drawTransaction(transaction)
-    insertTotalSaves(transaction)
-
-});
+    //INTETO DE SALTAR ERROR EN CASO DE VACIO
+    // if (inputConceptTransacation.value.thrim() === "" || inputAmonuntTransaction.value.thrim() === ""){
+    //     document.querySelector('#error').innerHTML = 
+    //     "<span> Debes introducir una descripción y una cantidad. <span>";
+    // } else {
+    
+    const transaction = {
+            concept: concept.value, 
+            amount: amount.value,
+        };
+    
+    drawTransaction(transaction);
+    upDateValues(transaction);
+    
+    concept.value ="";
+    amount.value = "";
+    
+    });
 
 function drawTransaction(transaction){
+
+
     const transactionElement = document.createElement("transaction");
 
     let transactionContent = `
-    <p>${transaction.concept}</p>
-    <p>${transaction.value}</p>`
+    <p>${transaction.concept} : ${transaction.amount}</p>`
 
     transactionElement.innerHTML=transactionContent;
     historialOfTransactions.prepend(transactionElement)
 
 }
 
-function insertTotalSaves(transaction){   
-    const totalSaves = document.createElement("totalSaves");
+function upDateValues(transaction){  
+    let newTransaction = transaction.amount
+    let amounts = amount + (newTransaction)
+    let income
+    let expense
+    let total
+
+    if (newTransaction>0){
+        income = newTransaction
+        total = amounts + income
+    }else{
+        expense = newTransaction 
+        total = amounts + expense
+    }
+    
     
    
 
-    totalSavesAmount = `
-    <p>~${transaction.amount}</p>`
+    totalJson = JSON.stringify(total)
+    incomeJson = JSON.stringify(income)
+    expenseJson = JSON.stringify(expense)
 
-    totalSaves.innerHTML=totalSavesAmount;
-    totalSavesLocation(totalSaves)
+    balance.innerText = `${totalJson}€`;
+    totalIncome.innerText = `${incomeJson}€`
+    totalExpense.innerText = `${expenseJson}€`;
 }
 
-function insertIncomeOrWaste(transactionAmount){
-    const incomeElement = documento.createElement("income")
-    const wasteElement = document.createElement("waste")
+// function insertIncomeOrWaste(transactionAmount){
+//     const incomeElement = documento.createElement("income")
+//     const wasteElement = document.createElement("waste")
 
-    if (transactionAmount >0 );
-
-
-}
-// }
-
-// function insertRowInHistorialTable(transactionFormData){
-//     const conceptTransacation = document.querySelector("#conceptTransacation")
-//     const amonuntTransaction = document.querySelector("#amonuntTransaction")
-
-//     let transactionConceptRef = conceptTransacation.insertRow(-1);
-//     newTransactionConceptRed = transactionConceptRef.insertRow(-1);
+//     if (transactionAmount >0 );
 
 
-
-// //     let transactionTableRef = document.getElementById("transactionTable")
-// //     let newTransactionRowRef = transactionTableRef.insertRow(-1);
-
-// //     let newTransactionCellRef = newTransactionRowRef.insertCell(0);
-// //     newTransactionCellRef.textContent = transactionFormData.get("conceptTransacation")
-
-// //     newTransactionCellRef = newTransactionRowRef.insertCell(1);
-// //     newTransactionCellRef.textContent = transactionFormData.get("amonuntTransaction")
-
-// //     transactionFormData.get("conceptTransacation")
-// //     transactionFormData.get("amonuntTransaction")
-// // }
 // }
