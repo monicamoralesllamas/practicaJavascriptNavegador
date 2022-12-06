@@ -1,7 +1,7 @@
 
 const createTransactionForm = document.querySelector('#formTransaction')
 const historialOfTransactions = document.querySelector('#transactionHistorial')
-
+const totalSavesLocation = document.querySelector('#totalSaves')
 
 createTransactionForm.addEventListener("submit", async(event) => {
     event.preventDefault();
@@ -19,6 +19,7 @@ createTransactionForm.addEventListener("submit", async(event) => {
     inputAmonuntTransaction.value = "";
 
     drawTransaction(transaction)
+    insertTotalSaves(transaction)
 
 });
 
@@ -36,12 +37,23 @@ function drawTransaction(transaction){
 
 function insertTotalSaves(transaction){   
     const totalSaves = document.createElement("totalSaves");
+    
+   
 
     totalSavesAmount = `
     <p>~${transaction.amount}</p>`
+
+    totalSaves.innerHTML=totalSavesAmount;
+    totalSavesLocation(totalSaves)
 }
 
-function insertIncomeOrWaste(transaction){
+function insertIncomeOrWaste(transactionAmount){
+    const incomeElement = documento.createElement("income")
+    const wasteElement = document.createElement("waste")
+
+    if (transactionAmount >0 );
+
+
 }
 // }
 
