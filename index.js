@@ -1,44 +1,63 @@
-// const createTransaction = document.querySelector("#createTransaction")
-// const transactionConcept = document.querySelector("#conceptTransacation")
-// const trancsactionAmount = document.querySelector("#amountTransaction")
-// console.log(trancsactionAmount,transactionConcept)
 
-// createTransaction.addEventListener("submit", async(event)=> {
-//     let transactionFormData = new FormData(createTransaction)
+const createTransactionForm = document.querySelector('#formTransaction')
 
-// // let transaction = {
-// // }
-// })
 
-// function drawTransactions(transaction) {
-//     const transactionConcept = document.querySelector("#conceptTransacation")
-//     const trancsactionAmount = document.querySelector("#amountTransaction")
+// const totalIncome = document.querySelector("#transactionTable")
+// const totalWaste = document.querySelector("#transactionTable")
+// const totalSaves = document.querySelector("#totalSaves")
+
+createTransactionForm.addEventListener("submit", async(event) => {
+    event.preventDefault();
+
+    const inputConceptTransacation = document.querySelector('#conceptTransacation')
+    const inputAmonuntTransaction = document.querySelector('#amonuntTransaction')
+
+    let transaction = {
+        concept:inputConceptTransacation.value, amount:inputAmonuntTransaction.value,
+    };
+
+    console.log(transaction);
+
+    inputConceptTransacation.value ="";
+    inputAmonuntTransaction.value = "";
+
+
+
+});
+
+function drawTransaction(transaction){
+    const transactionElement = document.createElement("transaction");
+
+    
+}
+
+// function insertTotalSaves(transactionFormData){   
+// }
+
+
+// function insertIncomeOrWaste(transactionFormData){
 
 // }
 
-const form = document.getElementById("formTransaction")
-console.log(form)
+// function insertRowInHistorialTable(transactionFormData){
+//     const conceptTransacation = document.querySelector("#conceptTransacation")
+//     const amonuntTransaction = document.querySelector("#amonuntTransaction")
 
-form.addEventListener("submit", function(event){
-    event.preventDefault()
-    console.log(event)
-    let transactionFormData = new FormData(form);
-    insertRowInTransactionTable(transactionFormData)
-
-})
+//     let transactionConceptRef = conceptTransacation.insertRow(-1);
+//     newTransactionConceptRed = transactionConceptRef.insertRow(-1);
 
 
-function insertRowInTransactionTable(transactionFormData){
-    let transactionTableRef = document.getElementById("transactionTable")
-    let newTransactionRowRef = transactionTableRef.insertRow(-1);
 
-    let newTransactionCellRef = newTransactionRowRef.insertCell(0);
-    newTransactionCellRef.textContent = transactionFormData.get("conceptTransacation")
+// //     let transactionTableRef = document.getElementById("transactionTable")
+// //     let newTransactionRowRef = transactionTableRef.insertRow(-1);
 
-    newTransactionCellRef = newTransactionRowRef.insertCell(1);
-    newTransactionCellRef.textContent = transactionFormData.get("amonuntTransaction")
+// //     let newTransactionCellRef = newTransactionRowRef.insertCell(0);
+// //     newTransactionCellRef.textContent = transactionFormData.get("conceptTransacation")
 
-    transactionFormData.get("conceptTransacation")
-    transactionFormData.get("amonuntTransaction")
-}
+// //     newTransactionCellRef = newTransactionRowRef.insertCell(1);
+// //     newTransactionCellRef.textContent = transactionFormData.get("amonuntTransaction")
 
+// //     transactionFormData.get("conceptTransacation")
+// //     transactionFormData.get("amonuntTransaction")
+// // }
+// }

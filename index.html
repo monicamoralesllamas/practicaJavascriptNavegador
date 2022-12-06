@@ -11,39 +11,46 @@
 <body>
     
     <h1 class="title">CONTROL DE GASTOS</h1><hr>
+    
+    
     <section class="totalSaves">TU AHORRO</section><hr>
-<div>
+    <p id="totalSaves"></p>
+    
+
+   
+    <table class="amountTable" id="amountTable">
+            <tr> 
+                <th>INNGRESO</th> 
+                <th>GASTO</th>
+            </tr>
+    </table>
+    
+    
+    <section class="historial">HISTORIAL</section>
     <table class="transactionTable" id="transactionTable">
         <tr> 
-            <th>INGRESO</th> 
-            <th>GASTO</th>
-        </tr>
-        <tr>
-            <th>10</th>
-            <th>cervezas</th>
-        </tr>
- 
+            <th></th> 
+            <th></th>
+        </tr>  
     </table>
-    <hr>
-</div>
-
-    <section class="historial">HISTORIAL</section><hr>
-
-    <form class="formTransaction" id="formTransaction" >//action="createTransaction"
+    
+    
+   
+    <form id="formTransaction" novalidate>
     <div>
-        <label for="conceptTransacation1">Concepto</label>      
+        <label for="titleConcept">Concepto</label>      
         <input id="conceptTransacation" placeholder="Añadir concepto de la transacción" name="conceptTransacation">
     </div>
     <div>
-        <label for="amonuntTransaction1">Cantidad</label>
+        <label for="titleAmount">Cantidad</label>
         <input id="amonuntTransaction" placeholder="Añadir cantidad" type="number" name="amonuntTransaction"><br>
     </div>
     <div>
-        <button>AÑADIR TRANSACCIÓN</button>
-        <script src="./index.js"></script>
+        <button type="submit" id="createTransaction">AÑADIR TRANSACCIÓN</button>
     </div>
     </form>
-
+    
+    <script src="./index.js"></script>
 </body>
 
 </html>
