@@ -1,51 +1,90 @@
 
 body {
-    background-color: rgba(19, 211, 163, 0.74);    
-
-}
-
-.historial {
+    background-image:url(/11114-paisajes-bonitos.jpg);
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-   
 }
 
-.title {
-    min-width: 360px;
-    max-width: 500px;
-    margin: 0 auto;
+.container{
+    padding: 40 px;
+    border-radius: 0.5rem;
+    background-color: aliceblue;
+    opacity: 0.85;
+    min-width: 340px;
+    margin: 10px;
 }
 
-.totalSaves {
+.h4 {
+    text-align: center;
+
+}
+
+/* TÍTULO APLICACIÓN*/
+.titleApp {
+    background-color: rgb(224, 163, 235);
+    text-align: center;
+    border-radius: 1rem;
+    margin: 40px;
+    
+}
+/* APARTADO BALANCE */
+.titleBalance{
+    text-align: center;
+    border-radius: 1rem;
+    margin: 40px;
+}
+.totalBalance{
+    text-align: center;
+    border-radius: 1rem;
+    margin: 40px;
+}
+
+
+/* APARTADO INGRESOS Y GASTOS*/
+
+.totalMovement{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 360px;
-    max-width: 500px;
-    margin: 0 auto;
-  
+    justify-content:space-around;
+    padding: 20px;
 }
 
-.formTransaction {
-    display: block;
-    justify-content: center;
-    align-items: center;
+/* APARTADO HISTORIAL MOVIMIENTOS*/
+.titleHistorial {
+    text-align: center;
+    margin-top:40px;
+    
+}
+
+.transactionHistorial {
+    display: flex;
+    flex-direction: column;
+   text-align: center;
    
-    min-width: 360px;
-    max-width: 500px;
-    margin: 0 auto;
 }
 
-.transactionTable{
-    min-width: 360px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-.tr,th{
-text-align: center;
-padding: 10px;
-border: rebeccapurple;
+/* APARTADO NUEVA TRANSACCIÓN*/
 
-
+.formTitle {
+    text-align: center;
+   
 }
+
+.formTransaction{
+    display: flex;
+   flex-direction: column;
+    padding: 20px;
+   text-align: center; 
+}
+.buttonTransaction{
+    background-color: dodgerblue;
+    border-radius: 6px;
+    text-align: center;
+    padding: 5px;
+}
+
+.buttonTransaction:hover{
+    background-color: rgba(130, 185, 185, 0.432);
+}
+

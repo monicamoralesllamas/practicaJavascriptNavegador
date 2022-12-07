@@ -11,13 +11,13 @@
 <body>
     <div class="container">
         <div class="title">
-        <h1 class="title">CONTROL DE GASTOS</h1><hr>
-        </div>
+        <h2 class="titleApp">CONTROL DE GASTOS</h2>
+        </div><hr>
         
         <div class="balance">
-        <h3>TU AHORRO</h3><hr>
-        <p id="totalBalance">0.00€</p>
-        </div>
+        <h3 class="titleBalance">TU AHORRO</h3>
+        <p class="totalBalance">0.00€</p>
+        </div><hr>
 
         <div class="totalMovement">
             <div>
@@ -28,24 +28,24 @@
             <h4>GASTO</h4>
             <p id="totalExpense">0.00€</p>
             </div>
-        </div>
+        </div><hr>
         
-        <h3>HISTORIAL</h3>
-        <ul  id="transactionHistorial"></ul>
+        <h3 class="titleHistorial">HISTORIAL</h3>
+        <ul  class="transactionHistorial"id="transactionHistorial"></ul>
+        <hr>
         
-        
-        <h3>Nuevo gasto</h3><br>
-        <form id="formTransaction" novalidate>
+        <h3 class="formTitle">AÑADIR NUEVA TRANSACCIÓN</h3>
+        <form class="formTransaction" id="formTransaction" novalidate>
         <div class="controlForm">
-            <label for="concept">Concepto</label>      
+            <label for="concept">Concepto</label><br>      
             <input id="conceptTransaction" placeholder="Añadir concepto de la transacción" name="conceptTransacation">
         </div><br>
         <div class="controlForm">
-            <label for="amount">Cantidad</label>
+            <label for="amount">Cantidad</label><br>
             <input id="amountTransaction" placeholder="Añadir cantidad" type="number" name="amonuntTransaction"><br>
         </div>
         <div><br>
-            <button type="submit" id="createTransaction">AÑADIR TRANSACCIÓN</button>
+            <button class="buttonTransaction"type="submit" id="createTransaction">AÑADIR TRANSACCIÓN</button>
         </div>
         </form>
     </div>
