@@ -50,6 +50,13 @@ body {
     padding: 20px;
 }
 
+.titleMovements{
+    
+    background-color: white;
+}
+
+
+
 /* APARTADO HISTORIAL MOVIMIENTOS*/
 .titleHistorial {
     text-align: center;
