@@ -1,173 +1,127 @@
-
-const transactionForm = document.querySelector('#formTransaction')
-const conceptSpace = document.querySelector('#conceptTransaction')
-const amountSpace = document.querySelector('#amountTransaction')
-const historialOfTransactions = document.querySelector('#transactionHistorial')
-const balance = document.querySelector('#totalBalance')
+//CREAMOS LAS ETIQUETAS DONDE SE VAN A UBICAR LOS DIFERENTES VALORES 
+const balance = document.querySelector("#totalBalance")
 const totalIncome = document.querySelector('#totalIncome')
 const totalExpense = document.querySelector('#totalExpense')
+const transactionHistorial= document.querySelector('#transactionHistorial')
+const transactionForm = document.querySelector('#formTransaction')
+const transactionConcept = document.querySelector('#conceptTransaction')
+const transactionAmount = document.querySelector('#amountTransaction')
+
 
 const localStorageTransactions = JSON.parse(localStorage.getItem("transactions"));
-let transactions = localStorage.getItem("transactions") !== null ? localStorageTransactions : [];
 
+let transacations = localStorage.getItem("transactions") !== null ? localStorageTransactions : [];
 
-transactionForm.addEventListener("submit", (event) => {
+//NEW TRANSACTIONS
+
+function newTransaction(event){
     event.preventDefault();
-    
-    const transaction = {
-        id: generateIdTransaction(),
-        concept: conceptSpace.value, 
-        amount: amountSpace.value,
-    };
-    
-    transactions.push(transaction);
-    
-    drawTransaction(transaction);
-    
-    // updateIncome(transaction);
-    // updateExpense(transaction);
-    updateTotaltransactions(transaction);
-    updateLocalStorage(transaction);
-    
-    
-    
-    conceptSpace.value ="";
-    amountSpace.value = "";
-    
-});
 
-function drawTransaction(transaction){
-    
-    const transactionSign = transaction.amount <0 ? "-" : "+";
-    
-    const transactionElement = document.createElement("list");
+    if (transactionConcept.value === "" || transactionAmount.value ===""){
+        document.getElementById("error_msg").innerHTML = "<span> Debe introducir una descripción y una cantidad , gracias! </span>";
+        setTimeout( ()=> (document.getElementById("error_msg").innerHTML = ""), 3000);
+    } else {
+        const transaction = {
+            id: generateIdTransaction(),
+            concept: transactionConcept.value, 
+            amount: + transactionAmount.value,
+        };
 
-    transactionElement.classList.add(transaction.amount <0 ? "minus":"plus");
-   
-    let transactionContent = `${transaction.concept}:${transactionSign}${Math.abs(transaction.amount)}€<button class="delete-button" onclick="deleteTransaction(${
-        transaction.id
-    })">X</button>
-    `
-    transactionElement.innerHTML=transactionContent;
-    
-    historialOfTransactions.appendChild(transactionElement)  
+    transacations.push(transaction);
+
+    drawTransactions(transaction)
+
+    updateValues();
+
+    updateLocalStorage();
+
+    transactionAmount.value = "";
+    transactionConcept.value = "";
+        
+    }
 }
+
+// FUNCION PARA CREAR UN ID RANDOM
 
 function generateIdTransaction(){
-    return Math.floor(Math.random() *100000000);
+    return Math.floor(Math.random()*100000);
 }
 
+// MOSTRAR EN PANTALLA EL HISTORIAL DE TRANSACCIONES
 
+function drawTransactions(transaction){
+    const sign = transaction.amount < 0 ? "-" :"+";
 
-function updateIncome(transaction){ 
-      
-let newTransaction = [parseFloat(transaction.amount)]
-let income = 0;
-{for (let i = 0; i < newTransaction.length; i++) {
-    if ((parseFloat(newTransaction)) > 0 ) {    
-    income = + parseFloat(newTransaction)    
-    } else {income = income}}
+    const movement = document.createElement("li");
 
-totalIncome.innerHTML =  `${(parseInt(totalIncome.innerHTML)) + (parseInt(income))}€`
-return income
-}}
-    
-function updateExpense(transaction){
-    
-    let newTransaction = [parseFloat(transaction.amount)]
+    movement.classList.add( transaction.amount < 0 ? "minus" : "plus");
 
-    let expense = 0;
-    {for (let i = 0; i < newTransaction.length; i++) {
-        if ((parseFloat(newTransaction)) < 0 ) {    
-        expense =  (parseFloat(newTransaction) )   
-        } else {expense = expense}}
-    
-        totalExpense.innerHTML = `${(parseInt(totalExpense.innerHTML)) + (parseInt(expense))}€`
-        return expense
-    }}
+    movement.innerHTML = `
+    ${transaction.concept} ${sign}${Math.abs(
+    transaction.amount
+  )} <button class="delete-buttton" onclick="removeTransaction(${
+    transaction.id
+  })">X</button>
+  `;
 
-
-
-
-function updateTotaltransactions(transaction){
-    updateExpense(transaction)
-    updateIncome(transaction)
-    balance.innerHTML = `${(parseInt(expense) + (parseInt(income)) )}€`
+  
+  transactionHistorial.appendChild(movement);
 
 }
 
+function updateValues(){
+    //creamos el array con los valores de las transacciones
+    const totalAmounts = transacations.map((transaction)=> transaction.amount);
+
+    //con un reduce sumamos al total el valor de las transacciones
+    const totalMoney = totalAmounts
+    .reduce((acc,value)=>(acc +=value),0)
+    .toFixed(2)
+
+    //con un filtro, filtramos las transacciones positivas y con un reduce las sumamos para dar el total de ingresos
+    const income = totalAmounts
+    .filter((value)=> value >0)
+    .reduce((acc,value)=>(acc +=value),0)
+    .toFixed(2);
+
+    //con un filtro, filtramos las transacciones negativas y con un reduce las sumamos para dar el total de gastos
+    const expense = totalAmounts
+    .filter((value)=> value < 0)
+    .reduce((acc,value)=>(acc +=value),0)* -(1)
+    .toFixed(2);
+
+    //con inner HTML lo mostramos en la pantalla
+    balance.innerHTML =`$${totalMoney}`;
+    totalIncome.innerHTML =`$${income}`;
+    totalExpense.innerHTML = `$${expense}`;
+
+}
 
 
+//FUNCION PARA BORRAR TRANSACCION CON EL ID CREADO
 
-    
+function removeTransaction(id){
+    transacations = transacations.filter((transaction)=> transaction.id !== id);
 
-
-
-// let total = 0
-
-
-//     if ((newTransaction) > 0 ){
-//         income =  (income + newTransaction)
-//         expense = (0) 
-//         total = (income + expense)
-//     } else {
-//         expense = expense + newTransaction
-//         income = 0         
-//         total = expense + income 
-//     }
-   
-
-   
-   
-
-
-// //     const amounts = transactions.map((newTransaction)=> newTransaction.amount)
-    
-// //     total = amounts
-// //     .reduce((bal, value) => (bal += value),0)
-    
-// //     ;
-    
-    
-// //    income = amounts
-// //     .filter((value)=> value >0)
-// //     .reduce((bal,value)=> (bal +=value),0)
-// //     ;
-    
-// //     expense =  amounts
-// //     .filter((value)=> value <0)
-// //     .reduce((bal,value)=> (bal+=value),0 )*-(1)
-    
-    
-    
-//     // totalJson = JSON.stringify(total)
-//     // incomeJson = JSON.stringify(income)
-//     // expenseJson = JSON.stringify(expense)
-    
-//     console.log((total))
-//     console.log(income)
-//     console.log(expense)
-
-//     // balance.textContent =`${total}€`;
-//     // totalIncome.textContent = `${income}€`;
-//     // totalExpense.textContent = `${expense}€`;
-
-
-
-
-function deleteTransaction(id){
-    transactions = transactions.filter((transaction) => transaction.id !== id);
     updateLocalStorage();
-    start()
+    start();
+
 }
 
+//ACTUALIZAR LOCAL STORAGE
 
-function updateLocalStorage() {
-    localStorage.setItem("transactions", JSON.stringify(transactions));
+function updateLocalStorage(){
+    localStorage.setItem("transactions", JSON.stringify(transacations));
 }
+
+//EMPEZAR DE NUEVO
 
 function start(){
-    historialOfTransactions.innerHTML = "";
-    transactions.forEach(drawTransaction);
-    updateIncome(transaction);
+    transactionHistorial.innerHTML = "";
+    transacations.forEach(drawTransactions);
+    updateValues();
 }
+
+start();
+
+transactionForm.addEventListener("submit", newTransaction);
