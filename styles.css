@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
 
 body {
     background-image:url(/11114-paisajes-bonitos.jpg);
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,8 +12,8 @@ body {
     padding: 40 px;
     border-radius: 0.5rem;
     background-color: aliceblue;
-    opacity: 0.85;
-    min-width: 340px;
+    opacity: 0.9;
+    min-width: 360px;
     margin: 10px;
 }
 
@@ -22,24 +23,37 @@ body {
 }
 
 /* TÍTULO APLICACIÓN*/
+.titlecontainer{
+    background: linear-gradient(to right, rgb(221, 94, 137), rgb(247, 187, 151));
+    height: 50px;
+  }
+ 
 .titleApp {
-    background-color: rgb(224, 163, 235);
-    text-align: center;
-    border-radius: 1rem;
-    margin: 40px;
-    
+    padding-top: 10px;
+    text-align: center; 
+        
 }
+
 /* APARTADO BALANCE */
+
 .titleBalance{
+    font-size: 22px;
     text-align: center;
     border-radius: 1rem;
     margin: 40px;
+    color: black;
+    text-decoration: underline;
+    text-decoration-color:rgb(221, 94, 137);
 }
 .totalBalance{
     text-align: center;
     border-radius: 1rem;
     margin: 40px;
+    color: black;
+    font-weight: bold;
 }
+
+
 
 
 /* APARTADO INGRESOS Y GASTOS*/
@@ -51,8 +65,18 @@ body {
 }
 
 .titleMovements{
-    
-    background-color: white;
+    font-size: 22px;
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: rgb(221, 94, 137);
+}
+
+.totalIncome{
+    font-weight: bold;
+}
+
+.totalExpense{
+    font-weight: bold;
 }
 
 
@@ -61,37 +85,59 @@ body {
 .titleHistorial {
     text-align: center;
     margin-top:40px;
+    font-size: 22px;
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: rgb(221, 94, 137);
     
 }
 
 .transactionHistorial {
     display: flex;
     flex-direction: column;
-   text-align: center;
+    text-align: center;
+    color: black;
+    margin-bottom: 40px;
+    font-weight: bold
+   
+   
    
 }
 
 /* APARTADO NUEVA TRANSACCIÓN*/
-
+.divForm{
+    padding: 20px;
+    margin-bottom: 20px;
+}
 .formTitle {
     text-align: center;
-   
+    color: black;
+    font-size: 22px;
+    text-decoration: underline;
+    text-decoration-color: rgb(221, 94, 137);  
 }
 
 .formTransaction{
     display: flex;
-   flex-direction: column;
-    padding: 20px;
-   text-align: center; 
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px; 
+
 }
 .buttonTransaction{
-    background-color: dodgerblue;
-    border-radius: 6px;
-    text-align: center;
-    padding: 5px;
+    font-size: 15px;
+    padding: 8px;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid rgb(31, 25, 25);
+    border-radius: 50px;
+    color: rgb(31, 28, 28);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: .5s;
 }
 
 .buttonTransaction:hover{
-    background-color: rgba(130, 185, 185, 0.432);
+    background-color: rgb(241, 92, 142);
 }
 

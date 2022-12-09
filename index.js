@@ -18,8 +18,8 @@ function newTransaction(event){
     event.preventDefault();
 
     if (transactionConcept.value === "" || transactionAmount.value ===""){
-        document.getElementById("error_msg").innerHTML = "<span> Debe introducir una descripción y una cantidad , gracias! </span>";
-        setTimeout( ()=> (document.getElementById("error_msg").innerHTML = ""), 3000);
+        document.getElementById("error").innerHTML = "<span> Debe introducir una descripción y una cantidad , gracias! </span>";
+        setTimeout( ()=> (document.getElementById("error").innerHTML = ""), 3000);
     } else {
         const transaction = {
             id: generateIdTransaction(),
@@ -69,6 +69,8 @@ function drawTransactions(transaction){
 
 }
 
+//FUNCION PARA ACTUALIZAR VALORES
+
 function updateValues(){
     //creamos el array con los valores de las transacciones
     const totalAmounts = transacations.map((transaction)=> transaction.amount);
@@ -87,7 +89,7 @@ function updateValues(){
     //con un filtro, filtramos las transacciones negativas y con un reduce las sumamos para dar el total de gastos
     const expense = totalAmounts
     .filter((value)=> value < 0)
-    .reduce((acc,value)=>(acc +=value),0)* -(1)
+    .reduce((acc,value)=>(acc +=value),0)
     .toFixed(2);
 
     //con inner HTML lo mostramos en la pantalla
@@ -123,5 +125,7 @@ function start(){
 }
 
 start();
+
+//EVENTO AL ENVIAR "AÑADIR TRANSACCIÓN"
 
 transactionForm.addEventListener("submit", newTransaction);
