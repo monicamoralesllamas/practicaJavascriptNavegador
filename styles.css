@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
 
 body {
-    background-image:url('/11114-paisajes-bonitos.jpg');
+    background-image:url('./11114-paisajes-bonitos.jpg');
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
