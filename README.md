@@ -2,11 +2,14 @@
 
 Necesitamos desarrollar una web que nos ayude a gestionar nuestros ingresos y gastos, con el objetivo de conocer el dinero que tenenos ahorrado.
 
-## Requisitos indispensables
+## Requisitos 
 1. La aplicación deberá mostrar en todo momento el total de gastos, ingresos y el dinero total que tenemos ahorrado.
 1. Podremos añadir un ingreso o un gasto incluyendo un concepto.
 1. Podremos borrar cualquier gasto o ingreso que hayamos introducido.
-
-## Requisitos opcionales
 1. Si cerramos la web y volvemos a entrar, tenemos que recuperar todos los gastos e ingresos que habíamos introducido, así como el ahorro total.
+
+## Visión previa App
+
+![captura app](https://user-images.githubusercontent.com/112618597/206680267-fd09841d-38e4-49a8-8b6c-9415f32b9ae3.png)
+
 
