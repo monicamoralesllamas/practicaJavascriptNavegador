@@ -91,9 +91,9 @@ function updateValues(){
     .toFixed(2);
 
     //con inner HTML lo mostramos en la pantalla
-    balance.innerHTML =`$${totalMoney}`;
-    totalIncome.innerHTML =`$${income}`;
-    totalExpense.innerHTML = `$${expense}`;
+    balance.innerHTML =`€${totalMoney}`;
+    totalIncome.innerHTML =`€${income}`;
+    totalExpense.innerHTML = `€${expense}`;
 
 }
 
