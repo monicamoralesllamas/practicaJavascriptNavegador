@@ -10,6 +10,7 @@ Necesitamos desarrollar una web que nos ayude a gestionar nuestros ingresos y ga
 
 ## Visión previa App
 
-![captura app](https://user-images.githubusercontent.com/112618597/206680267-fd09841d-38e4-49a8-8b6c-9415f32b9ae3.png)
+![captura app](https://user-images.githubusercontent.com/112618597/206932713-42779995-f6bc-4885-a617-928cba9b94cc.png)
+
 
 
