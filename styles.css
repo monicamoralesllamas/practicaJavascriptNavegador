@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
 
 body {
-    background-image:url(/11114-paisajes-bonitos.jpg);
+    background-image: url('/paisaje.jpg');
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
@@ -40,7 +40,7 @@ body {
     font-size: 22px;
     text-align: center;
     border-radius: 1rem;
-    margin: 40px;
+    margin: 20px;
     color: black;
     text-decoration: underline;
     text-decoration-color:rgb(221, 94, 137);
@@ -48,7 +48,7 @@ body {
 .totalBalance{
     text-align: center;
     border-radius: 1rem;
-    margin: 40px;
+    margin: 20px;
     color: black;
     font-weight: bold;
 }
@@ -73,10 +73,14 @@ body {
 
 .totalIncome{
     font-weight: bold;
+    color: rgb(64, 255, 47);
+    text-align: center;
 }
 
 .totalExpense{
     font-weight: bold;
+    color: rgb(255, 0, 0);
+    text-align: center;
 }
 
 
@@ -84,7 +88,7 @@ body {
 /* APARTADO HISTORIAL MOVIMIENTOS*/
 .titleHistorial {
     text-align: center;
-    margin-top:40px;
+    margin-top:20px;
     font-size: 22px;
     color: black;
     text-decoration: underline;
@@ -97,7 +101,7 @@ body {
     flex-direction: column;
     text-align: center;
     color: black;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-weight: bold
    
    
@@ -107,7 +111,7 @@ body {
 /* APARTADO NUEVA TRANSACCIÓN*/
 .divForm{
     padding: 20px;
-    margin-bottom: 20px;
+   
 }
 .formTitle {
     text-align: center;
@@ -125,6 +129,14 @@ body {
     padding: 20px; 
 
 }
+
+.concept{
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;  
+}
+
 .buttonTransaction{
     font-size: 15px;
     padding: 8px;
@@ -141,3 +153,8 @@ body {
     background-color: rgb(241, 92, 142);
 }
 
+
+.error{
+    color: red;
+    font-weight: bold;
+}
